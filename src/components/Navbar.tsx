@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">
-        <Link className="navbar-brand" to="/">CollabDocs</Link>
+        <Link className="navbar-brand text-light" to="/">CollabDocs</Link>
         <button
           className="navbar-toggler"
           type="button"
