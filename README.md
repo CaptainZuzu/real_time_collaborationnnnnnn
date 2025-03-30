@@ -1,87 +1,120 @@
-# Real-Time Collaboration App
+# Real-time Document Collaboration App
 
-<div align="center">
-  <img src="https://static.vecteezy.com/system/resources/previews/021/983/512/large_2x/communication-icon-collaboration-illustration-sign-cooperation-symbol-teamwork-logo-vector.jpg" alt="Collaboration Logo" width="300" height="300" style="border-radius: 15px; margin: 20px 0;">
-</div>
+A full-stack application that enables real-time document collaboration with features like user authentication, document sharing, and live editing.
 
-A modern React application for real-time document collaboration built with Vite, React, and TypeScript.
+## Features
 
-## 🚀 Quick Start
+- 🔐 User Authentication (Register/Login)
+- 📝 Create, Read, Update, Delete documents
+- 👥 Real-time collaboration
+- 🔒 Document sharing and permissions
+- 📱 Responsive design
+- ⚡ Real-time updates using Socket.IO
+
+## Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- Socket.IO Client
+- TailwindCSS
+- React Router
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Socket.IO
+- JWT Authentication
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn
+
+## Setup Instructions
 
 1. Clone the repository:
+   ```bash
+   git clone https://github.com/CaptainZuzu/real_time_collaborationnnnnnn.git
+   cd real_time_collaborationnnnnnn
+   ```
+
+2. Install Frontend Dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+3. Install Backend Dependencies:
+   ```bash
+   cd ../backend
+   npm install
+   ```
+
+4. Create Environment Files:
+
+   In the backend folder, create `.env`:
+   ```
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/collab-docs
+   JWT_SECRET=your-super-secret-key-change-this-in-production
+   ```
+
+5. Start MongoDB:
+   - Make sure MongoDB is running on your system
+   - Default port: 27017
+
+6. Start the Backend Server:
+   ```bash
+   cd backend
+   npm run dev
+   ```
+   The server will start on http://localhost:5000
+
+7. Start the Frontend Server:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+   The frontend will start on http://localhost:5173
+
+## API Documentation
+
+The API documentation is available at http://localhost:5000/api/info when the backend server is running.
+
+### Postman Collection
+A Postman collection is included in the `backend` folder. Import `Real-time-Doc-Collab.postman_collection.json` into Postman to test the API endpoints.
+
+## Testing
+
+### Frontend Tests
 ```bash
-git clone https://github.com/CaptainZuzu/real_time_collaborationnnnnnn.git
-cd real_time_collaborationnnnnnn
+cd frontend
+npm test
 ```
 
-2. Install dependencies:
+### Backend Tests
 ```bash
-npm install
+cd backend
+npm test
 ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open in browser:
-- Local: http://localhost:5173
-- Network: Check terminal output for network URL
-
-## 🛠️ Tech Stack
-
-- React 18
-- TypeScript
-- Vite
-- React Router DOM
-- Bootstrap 5
-- Axios
-
-## 📁 Project Structure
-
-```
-real_time_collab/
-├── src/
-│   ├── components/     # Reusable components
-│   │   └── Navbar.tsx
-│   ├── pages/         # Page components
-│   │   ├── Landing.tsx
-│   │   ├── Login.tsx
-│   │   └── Register.tsx
-│   ├── App.tsx        # Main App component
-│   ├── main.tsx       # Entry point
-│   └── index.css      # Global styles
-├── index.html
-├── vite.config.ts
-└── package.json
-```
-
-## 🤝 How to Contribute
+## Contributing
 
 1. Fork the repository
-2. Create a new branch: `git checkout -b feature-name`
-3. Make your changes
-4. Commit your changes: `git commit -m "Add feature"`
-5. Push to the branch: `git push origin feature-name`
-6. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📝 Available Scripts
+## License
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🔑 Features
+## Acknowledgments
 
-- User Authentication (Login/Register)
-- Real-time Document Collaboration
-- Modern UI with Bootstrap
-- Responsive Design
-
-## 📫 Contact
-
-If you want to contact me you can reach me at [your-email@example.com]
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details 
+- React.js team for the amazing frontend framework
+- MongoDB team for the powerful database
+- Socket.IO team for real-time capabilities 

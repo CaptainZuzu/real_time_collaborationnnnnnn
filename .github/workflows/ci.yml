@@ -1,0 +1,84 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Install Backend Dependencies
+      run: |
+        cd backend
+        npm install
+
+    - name: Create Backend Environment File
+      run: |
+        cd backend
+        echo "PORT=5000" > .env
+        echo "MONGODB_URI=mongodb://localhost:27017/collab-docs" >> .env
+        echo "JWT_SECRET=test-secret-key" >> .env
+
+    - name: Run Backend Tests
+      run: |
+        cd backend
+        npm test
+
+    - name: Run Frontend Tests
+      run: |
+        cd frontend
+        npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Install Backend Dependencies
+      run: |
+        cd backend
+        npm install
+
+    - name: Run ESLint on Frontend
+      run: |
+        cd frontend
+        npm run lint
+
+    - name: Run ESLint on Backend
+      run: |
+        cd backend
+        npm run lint 
